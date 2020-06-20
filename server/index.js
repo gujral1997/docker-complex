@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Postgress db setup
+// Postgres db setup
 
 const { Pool } = require("pg");
 
@@ -26,7 +26,7 @@ pgClient.on("error", () => console.log("Lost PG connection"));
 
 pgClient
   .query("CREATE TABLE IF NOT EXISTS values (number INT)")
-  .catch((err) => console.log(`POSTGRESS DB ERROR: ${err}`));
+  .catch((err) => console.log(`POSTGRES DB ERROR: ${err}`));
 
 // Redis client setup
 
