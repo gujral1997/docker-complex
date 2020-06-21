@@ -21,3 +21,15 @@ after_success:
   - docker push gujral1997/complex-worker
   - docker push gujral1997/complex-server
   - docker logout
+
+  deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "complex"
+    env: "Complex-env"
+    bucket_name: "elasticbeanstalk-us-east-2-680029890655"
+    bucket_path: "complex"
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
